@@ -1,4 +1,6 @@
-import 'package:brainstock/screen/presentation/pages/screen.dart';
+import 'package:brainstock/core/theme/app_theme.dart';
+import 'package:brainstock/features/screen/presentation/pages/screen.dart';
+import 'package:brainstock/features/stats/presentation/pages/stats_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,15 +10,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BrainStock',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
       home: const App(),
     );
   }
@@ -27,6 +25,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Screen();
+    return const StatsPage();
   }
 }
