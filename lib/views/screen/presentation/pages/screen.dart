@@ -1,7 +1,7 @@
-import 'package:brainstock/features/home/presentation/pages/home_page.dart';
 import 'package:brainstock/profile_page.dart';
-import 'package:brainstock/features/screen/presentation/widgets/bottom_menu.dart';
-import 'package:brainstock/features/stats/presentation/pages/stats_page.dart';
+import 'package:brainstock/views/screen/presentation/widgets/bottom_menu.dart';
+import 'package:brainstock/views/views.dart';
+
 import 'package:flutter/material.dart';
 
 class Screen extends StatefulWidget {

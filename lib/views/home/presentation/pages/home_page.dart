@@ -1,9 +1,9 @@
 import 'package:brainstock/core/theme/app_pallete.dart';
-import 'package:brainstock/features/home/presentation/widgets/home_heading_section.dart';
-import 'package:brainstock/features/home/presentation/widgets/home_recent_card.dart';
-import 'package:brainstock/features/home/presentation/widgets/home_category_section.dart';
-import 'package:brainstock/features/home/presentation/widgets/home_textfield.dart';
-import 'package:brainstock/features/home/presentation/widgets/home_upcoming_section.dart';
+import 'package:brainstock/views/home/presentation/widgets/home_heading_section.dart';
+import 'package:brainstock/views/home/presentation/widgets/home_recent_card.dart';
+import 'package:brainstock/views/home/presentation/widgets/home_category_section.dart';
+import 'package:brainstock/views/home/presentation/widgets/home_textfield.dart';
+import 'package:brainstock/views/home/presentation/widgets/home_upcoming_section.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

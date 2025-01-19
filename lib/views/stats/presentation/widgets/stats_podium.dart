@@ -1,4 +1,4 @@
-import 'package:brainstock/features/stats/presentation/widgets/stats_podium_avatar.dart';
+import 'package:brainstock/views/stats/presentation/widgets/stats_podium_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 

@@ -1,6 +1,6 @@
 import 'package:brainstock/core/theme/app_pallete.dart';
-import 'package:brainstock/features/stats/presentation/widgets/stats_leaderboard.dart';
-import 'package:brainstock/features/stats/presentation/widgets/stats_podium.dart';
+import 'package:brainstock/views/stats/presentation/widgets/stats_leaderboard.dart';
+import 'package:brainstock/views/stats/presentation/widgets/stats_podium.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:svg_flutter/svg.dart';

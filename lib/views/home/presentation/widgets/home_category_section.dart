@@ -1,5 +1,5 @@
 import 'package:brainstock/core/theme/app_pallete.dart';
-import 'package:brainstock/features/home/presentation/widgets/home_subject_card.dart';
+import 'package:brainstock/views/home/presentation/widgets/home_subject_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
