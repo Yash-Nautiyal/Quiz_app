@@ -1,6 +1,5 @@
 import 'package:brainstock/core/theme/app_theme.dart';
 import 'package:brainstock/features/screen/presentation/pages/screen.dart';
-import 'package:brainstock/features/stats/presentation/pages/stats_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,6 +24,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const StatsPage();
+    return const Screen();
   }
 }

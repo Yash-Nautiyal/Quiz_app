@@ -13,7 +13,7 @@ class StatsPage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color(0xFF6A5AE0),
+      backgroundColor: AppPallete.background,
       body: Stack(
         children: [
           SizedBox(

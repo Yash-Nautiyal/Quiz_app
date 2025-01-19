@@ -1,4 +1,4 @@
-import 'package:brainstock/home_page.dart';
+import 'package:brainstock/features/home/presentation/pages/home_page.dart';
 import 'package:brainstock/profile_page.dart';
 import 'package:brainstock/features/screen/presentation/widgets/bottom_menu.dart';
 import 'package:brainstock/features/stats/presentation/pages/stats_page.dart';

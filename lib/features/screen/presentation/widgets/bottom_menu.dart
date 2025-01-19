@@ -1,3 +1,4 @@
+import 'package:brainstock/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:uicons_pro/uicons_pro.dart';
@@ -8,11 +9,11 @@ class Menu extends StatefulWidget {
   final Function(int) onIconPressed;
 
   const Menu({
-    Key? key,
+    super.key,
     required this.screenWidth,
     required this.currentIndex,
     required this.onIconPressed,
-  }) : super(key: key);
+  });
 
   @override
   State<Menu> createState() => _MenuState();
@@ -67,7 +68,7 @@ class _MenuState extends State<Menu> {
                     height:
                         index == widget.currentIndex ? size.width * .014 : 0,
                     decoration: BoxDecoration(
-                      color: Colors.deepPurple,
+                      color: AppPallete.black,
                       borderRadius: const BorderRadius.vertical(
                         bottom: Radius.circular(10),
                       ),
@@ -77,16 +78,8 @@ class _MenuState extends State<Menu> {
                     listOfIcons[index],
                     size: size.width * .06,
                     color: index == widget.currentIndex
-                        ? Colors.deepPurple
+                        ? AppPallete.black
                         : Colors.grey,
-                    shadows: index == widget.currentIndex
-                        ? [
-                            Shadow(
-                                blurRadius: 4,
-                                offset: const Offset(-4, 7),
-                                color: Colors.blueGrey),
-                          ]
-                        : [],
                   ),
                   SizedBox(height: size.width * .02),
                 ],
