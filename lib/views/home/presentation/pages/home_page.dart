@@ -1,10 +1,13 @@
-import 'package:brainstock/core/theme/app_pallete.dart';
-import 'package:brainstock/views/home/presentation/widgets/home_heading_section.dart';
-import 'package:brainstock/views/home/presentation/widgets/home_recent_card.dart';
-import 'package:brainstock/views/home/presentation/widgets/home_category_section.dart';
-import 'package:brainstock/views/home/presentation/widgets/home_textfield.dart';
-import 'package:brainstock/views/home/presentation/widgets/home_upcoming_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/theme/app_pallete.dart';
+import '../bloc/home_bloc.dart';
+import '../widgets/home_category_section.dart';
+import '../widgets/home_heading_section.dart';
+import '../widgets/home_recent_card.dart';
+import '../widgets/home_textfield.dart';
+import '../widgets/home_upcoming_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +21,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     // final double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       extendBody: true,
       backgroundColor: AppPallete.white,
@@ -44,14 +46,44 @@ class _HomePageState extends State<HomePage> {
               child: FlexibleSpaceBar(
                 background: Container(
                   padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Spacer(),
-                      const HomeTextfield(hintText: "Search Categories..."),
-                      const SizedBox(height: 10),
-                      HomeRecentCard(screenHeight: screenHeight),
-                    ],
+                  child: SafeArea(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Spacer(),
+                        const HomeTextfield(hintText: "Search Categories..."),
+                        const SizedBox(height: 10),
+                        BlocBuilder<HomeBloc, HomeState>(
+                          builder: (context, state) {
+                            if (state is HomeLoading) {
+                              return SizedBox(
+                                height: screenHeight * .17,
+                                child: const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            } else if (state is HomeLoadingSuccess) {
+                              final quiz = state.quiz;
+                              return HomeRecentCard(
+                                screenHeight: screenHeight,
+                                title: quiz.title,
+                                topic: quiz.topic,
+                                questions: quiz.questionsCount,
+                              );
+                            } else if (state is HomeLoadingFailure) {
+                              return SizedBox(
+                                height: screenHeight * .17,
+                                child: Center(
+                                  child: Text(state.message),
+                                ),
+                              );
+                            } else {
+                              return const SizedBox();
+                            }
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

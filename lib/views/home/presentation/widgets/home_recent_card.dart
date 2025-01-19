@@ -6,7 +6,15 @@ import 'package:uicons_pro/uicons_pro.dart';
 
 class HomeRecentCard extends StatelessWidget {
   final double screenHeight;
-  const HomeRecentCard({super.key, required this.screenHeight});
+  final String topic;
+  final String title;
+  final int questions;
+  const HomeRecentCard(
+      {super.key,
+      required this.screenHeight,
+      required this.topic,
+      required this.title,
+      required this.questions});
 
   @override
   Widget build(BuildContext context) {
@@ -68,53 +76,60 @@ class HomeRecentCard extends StatelessWidget {
                         )
                       ],
                     ),
-                    const Spacer(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          "Science Technology",
-                          style: GoogleFonts.rubik(
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            topic,
+                            style: GoogleFonts.rubik(
                               fontSize: 15,
                               color: AppPallete.darkred,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              "Science",
-                              style: GoogleFonts.rubik(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Wrap(
+                            runSpacing: 5, // vertical spacing between lines
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Text(
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                title,
+                                style: GoogleFonts.rubik(
                                   fontSize: 13,
                                   color: AppPallete.darkred.withAlpha(100),
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            CircleAvatar(
-                              radius: 3,
-                              backgroundColor:
-                                  AppPallete.darkred.withAlpha(100),
-                            ),
-                            const SizedBox(
-                              width: 2,
-                            ),
-                            Text(
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              "10 Questions",
-                              style: GoogleFonts.rubik(
-                                  fontSize: 13,
-                                  color: AppPallete.darkred.withAlpha(100),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                      ],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 3,
+                                    backgroundColor:
+                                        AppPallete.darkred.withAlpha(100),
+                                  ),
+                                  const SizedBox(width: 2),
+                                  Text(
+                                    "$questions Questions",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.rubik(
+                                      fontSize: 13,
+                                      color: AppPallete.darkred.withAlpha(100),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),
